@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="/javascripts/main.js")
+  body(onmousemove="update_drag(event)" onmouseup="drag(null,false,event)")
+    block content
+    block mk2

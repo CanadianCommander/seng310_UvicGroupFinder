@@ -1,0 +1,136 @@
+body {
+  padding: 0px 15px 0px 15px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+p {
+  margin: 2px;
+}
+
+.group_heading {
+  margin: 0 0 5px 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: normal;
+  font-style: italic;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#title {
+  float: left;
+  font-size: 20pt;
+  font-style: italic;
+  font-family: Futura, sans-serif;
+  min-width: 100%;
+  margin-bottom: 2px;
+  margin-top:10px;
+}
+
+.common {
+  background-color: #f9f9f9;
+  padding: 5px;
+}
+
+.common#groups {
+  overflow: scroll;
+  position: absolute;
+  left: 10px;
+  right: 350px;
+  top: 0;
+  bottom: 50px;
+}
+
+#separator {
+  position: absolute;
+  background-color: #dedede;
+  right: 325px;
+  width: 25px;
+  top: 0;
+  bottom: 50px;
+  cursor: col-resize;
+}
+
+.common#students {
+  position: absolute;
+  min-width: 325px;
+  right: 10px;
+  top: 0;
+  bottom: 50px;
+}
+
+#header{
+  position: absolute;
+  min-width: 100%;
+  top:0;
+  bottom: 50px;
+}
+
+#main {
+  position:absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  top: 50px;
+}
+
+.group_box {
+  display: inline-block;
+  background-color: #e4e4e4;
+  vertical-align: top;
+  width:175px;
+  height:180px;
+  max-width: 175px;
+  max-height: 180px;
+  margin: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: solid;
+  border-color: #dfdfdf;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px #9a9a9a;
+}
+img.group_box {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  margin: 20px;
+
+}
+
+.members_lst {
+  overflow: scroll;
+  background-color: #ececec;
+  width: 95%;
+  height: 120px;
+  max-height: 120px;
+  border: solid;
+  border-color: #ececec;
+  border-radius: 10px;
+}
+
+.round_icon {
+  display: inline-block;
+  border-color: inherit;
+  background-color: #ecf0f1;
+  margin: 3px 3px 0 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 20px;
+  vertical-align: 0;
+}
+
+.student {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 2px;
+  padding: 2px;
+  background-color: #eeeeee;
+  transition: background-color 0.5s;
+  cursor: all-scroll;
+  box-shadow: 2px 2px 2px darkgray;
+  z-index: 1;
+}
