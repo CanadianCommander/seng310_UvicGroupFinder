@@ -134,3 +134,30 @@ img.group_box {
   box-shadow: 2px 2px 2px darkgray;
   z-index: 1;
 }
+
+#save_button{
+  position: absolute;
+  margin: 5px;
+  bottom: 10px;
+  left: 0;
+  width: 50px;
+  height: 25px;
+  border: solid;
+  background-color: #e67e22;
+  border-color: #e67e22;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#save_prog{
+  opacity: 0.0;
+  position: absolute;
+  margin: 5px;
+  bottom: 10px;
+  left: 60px;
+  width: 40px;
+  height: 13px;
+  background-color: transparent;
+  transition: opacity 5s;
+
+}

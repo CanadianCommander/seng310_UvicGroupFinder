@@ -4,6 +4,8 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src="/javascripts/main.js")
-  body(onmousemove="update_drag(event)" onmouseup="drag(null,false,event)")
+    script(src="/javascripts/jquery.js")
+    script(src="/javascripts/util.js")
+  body(onmousemove="update_drag(event)" onmouseup="drag(null,false,event)" onload="load_cookie()")
     block content
     block mk2

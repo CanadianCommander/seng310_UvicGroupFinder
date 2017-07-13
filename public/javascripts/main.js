@@ -2,6 +2,17 @@
  * Created by bbenetti on 2017-07-10.
  */
 
+function load_cookie(){
+  const old_id = get_cookie("user_id");
+  if (old_id !== null) {
+    user_id = old_id;//export user id to all files
+  }
+  else{
+    const new_id = Math.random();
+    document.cookie = "user_id=" + new_id + ";";
+    user_id = new_id;//export user id to all files
+  }
+}
 
 function add_group()
 {
@@ -143,3 +154,73 @@ function update_splitter(event)
   student_area.style.minWidth = (document.body.clientWidth - event.clientX - 5) + "px";
   splitter_in_drag.style.right = (document.body.clientWidth - event.clientX ) + "px";
 }
+
+function save_groups()
+{
+  // inspect DOM and extract group info.
+  let group_dic = {};
+  let groups = $(".group_box");
+  for( let i = 0; i < groups.length; i += 1) {
+    let student_list = $(".members_lst > .student > p",groups[i]);
+    let heading = $("h3",groups[i]);
+
+    if (heading[0] !== undefined) {
+      group_dic[heading[0].innerHTML] = [];
+      for (let z = 0; z < student_list.length; z += 1) {
+        group_dic[heading[0].innerHTML].push(student_list[z].innerHTML);
+      }
+    }
+  }
+
+  let unassigned_students = $("#students").find(".student > p");
+  group_dic["xy_unassigned_42"] = [];
+  for (let i =0; i < unassigned_students.length; i ++ ){
+    group_dic["xy_unassigned_42"].push(unassigned_students[i].innerHTML);
+  }
+
+
+  // format data in to json request
+  let req_data = "{";
+  for (let key in group_dic){
+    let students = group_dic[key];
+
+    req_data += `"${key}"\:[`;
+    for (let i = 0; i < students.length; i ++){
+      const name = students[i];
+      req_data += `"${name}"`;
+      if (i + 1 < students.length)
+      {
+        req_data += ",";
+      }
+    }
+    req_data += "],"
+  }
+
+  //remove trailing comma
+  req_data += `"user_id":"${user_id}"`;
+  req_data += "}";
+  // send data to db for save
+  $.ajax("/api/save_groups",{
+    contentType:'application/json',
+    method: "POST",
+    complete: function (res, status){
+      if (status === "success"){
+        let sv_prog = $('#save_prog');
+        sv_prog.attr("src", "images/check.png");
+        sv_prog.css("width", "25px");
+        sv_prog.css("height", "25px");
+        sv_prog.css("cursor", "inherit");
+        sv_prog.bind("transitionend", (event) => sv_prog.css("opacity", "0.0"));
+
+      }
+    },
+    data: req_data
+  });
+
+  let sv_prog = $('#save_prog');
+  sv_prog.css("opacity","1.0");
+  sv_prog.css("cursor","wait");
+}
+
+
+
