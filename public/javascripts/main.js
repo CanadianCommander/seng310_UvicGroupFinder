@@ -165,9 +165,9 @@ function save_groups()
     let heading = $("h3",groups[i]);
 
     if (heading[0] !== undefined) {
-      group_dic[heading[0].innerHTML] = [];
+      group_dic[heading[0].textContent] = [];
       for (let z = 0; z < student_list.length; z += 1) {
-        group_dic[heading[0].innerHTML].push(student_list[z].innerHTML);
+        group_dic[heading[0].textContent].push(student_list[z].textContent);
       }
     }
   }
