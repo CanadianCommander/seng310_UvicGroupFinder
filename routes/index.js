@@ -53,6 +53,8 @@ function database_render(res, group_lst, unassigned_lst){
       group_lst[key].students = group_lst[key].students.filter((x) => x !== null);
     }
   }
+  unassigned_lst = unassigned_lst.filter((x) => x.name !== null);
+
   res.render('index', {
     groups: group_lst,
     students: unassigned_lst

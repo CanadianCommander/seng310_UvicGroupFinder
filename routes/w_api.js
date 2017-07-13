@@ -7,7 +7,6 @@ let database = require('../util').database;
 
 router.post('/save_groups', function(req, res, next)
 {// save groups (formatted as JSON) to DB
-  console.log(req.body);
   database.serialize(function () {
     const u_id = req.body['user_id'];
     database.run("CREATE TABLE IF NOT EXISTS group_table (user_id VARCHAR(20), group_name VARCHAR(200), student_name VARCHAR(200))");
