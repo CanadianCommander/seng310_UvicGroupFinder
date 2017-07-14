@@ -14,3 +14,18 @@ function get_cookie(name){
   }
   return null;
 }
+
+
+const NUM_UNDERSCORE = 20;
+function append_random(text){
+  let new_t = text;
+  for (let i =0; i < NUM_UNDERSCORE; i++ ){
+    new_t += "_";
+  }
+  new_t += Math.random();
+  return new_t;
+}
+
+function remove_random(text){
+  return text.replace(/_+\d+$/, "");
+}

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 let database = require('../util').database;
+let remove_random = require('../util').remove_random;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -25,11 +26,12 @@ router.get('/', function(req, res, next) {
               }
               else{
                 // in group
-                if (rows[i]['group_name'] in group_lists) {
-                  group_lists[rows[i]['group_name']].students.push(rows[i]['student_name']);
+                let group_name = rows[i]['group_name'];
+                if (group_name in group_lists) {
+                  group_lists[group_name].students.push(rows[i]['student_name']);
                 }
                 else{
-                  group_lists[rows[i]['group_name']] = {name: rows[i]['group_name'], students: [rows[i]['student_name']]};
+                  group_lists[group_name] = {name: remove_random(group_name), students: [rows[i]['student_name']]};
                 }
               }
             }

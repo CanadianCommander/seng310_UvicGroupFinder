@@ -44,7 +44,7 @@ function student_highlight(element, b_on) {
   }
   else
   {
-    element.style.setProperty("background-color","#f5f5f5");
+    element.style.setProperty("background-color","#eeeeee");
   }
 }
 
@@ -128,8 +128,8 @@ function drop_to_group_lst(element,event)
     drop_target.appendChild(child);
     return true;
   }
-  else if(drop_target.className === "student")
-  {// we are dropping on a student. There may be a list underneath it!
+  else if(drop_target.className === "student" || drop_target.tagName === "P")
+  {// we are dropping on a student / text. There may be a list underneath it!
     drop_target.style.visibility = "hidden";
     res = drop_to_group_lst(element,event);
     drop_target.style.visibility = "visible";
@@ -165,9 +165,14 @@ function save_groups()
     let heading = $("h3",groups[i]);
 
     if (heading[0] !== undefined) {
-      group_dic[heading[0].textContent] = [];
+      let heading_text = heading[0].textContent;
+      if(heading_text in group_dic){
+        // already in dictionary append to name so we can insert.
+        heading_text = append_random(heading_text);
+      }
+      group_dic[heading_text] = [];
       for (let z = 0; z < student_list.length; z += 1) {
-        group_dic[heading[0].textContent].push(student_list[z].textContent);
+        group_dic[heading_text].push(student_list[z].textContent);
       }
     }
   }
