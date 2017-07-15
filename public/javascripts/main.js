@@ -70,6 +70,9 @@ function student_highlight(element, b_on) {
     element.style.setProperty("background-color","#eeeeee");
   }
 }
+function student_info_save(){
+    window.location.href = "main_hub";
+}
 
 element_in_drag = null;
 element_drag_style = null;

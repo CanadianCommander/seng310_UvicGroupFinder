@@ -9,7 +9,8 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var web_api = require('./routes/w_api');
 var pop_over = require('./routes/pop_over');
-
+var student_sign_up = require('./routes/student_sign_up')
+var main_hub = require('./routes/main_hub')
 var app = express();
 
 // view engine setup
@@ -28,7 +29,8 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/api', web_api);
 app.use('/pop_over', pop_over);
-
+app.use('/student_sign_up',student_sign_up);
+app.use('/main_hub',main_hub);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

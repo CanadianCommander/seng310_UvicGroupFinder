@@ -75,7 +75,13 @@ p {
   position: absolute;
   top:0;
 }
-
+#student_sign_up {
+  position:absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 15%;
+  top: 50px;
+}
 #main {
   position:absolute;
   bottom: 0px;
@@ -142,7 +148,19 @@ img.group_box {
   box-shadow: 2px 2px 2px darkgray;
   z-index: 1;
 }
-
+#drop_down_menu{
+  position: absolute;
+  margin: 5px;
+  left: 15%;
+  top: 45%;
+  width: 50px;
+  height: 25px;
+  border: solid;
+  background-color: #e67e22;
+  border-color: #e67e22;
+  border-radius: 5px;
+  cursor: pointer;
+}
 #save_button{
   position: absolute;
   margin: 5px;

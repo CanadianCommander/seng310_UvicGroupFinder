@@ -1,0 +1,76 @@
+extends student_layout
+
+
+block content
+    div#header
+        h1#title Student Sign Up
+    a(href="main_hub")
+        p(style="Position: absolute; right:50%") Main_hub
+    div#student_sign_up
+        form(name="First Name", method="post")
+            div.input
+                span.label
+                    p First Name
+
+                input(type="text", name="First Name")
+                br
+                br
+            //div.actions
+                input(type="submit", value="add")
+        form(name="Last Name", method="post")
+            div.input
+                span.label
+                    p Last Name
+                input(type="text", name="Last Name")
+                br
+                br
+        form(name="About You", method="post")
+            div.input
+                span.label Tell Us A Bit About You
+                br
+                textarea(name="description", cols="40", rows="5")
+                br
+                br
+        form(name="Program", method="post")
+            div.input
+                span.label
+                    p Program (Major)
+                input(type="text", name="Program")
+                br
+                br
+        p Select Year:
+        select#ddlFruits
+            option(value='')
+            option(value='') First
+            option(value='') Second
+            option(value='') Third
+            option(value='') Fourth
+        script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
+        script(type='text/javascript').
+            $(function () {
+                $("#ddlFruits").change(function () {
+                    var selectedText = $(this).find("option:selected").text();
+                    var selectedValue = $(this).val();
+                    //alert("Selected Text: " + selectedText + " Value: " + selectedValue);
+                });
+            });
+            br
+        br
+        br
+        p Select Gender:
+        select#ddlFruits
+            option(value='')
+            option(value='') Male
+            option(value='') Female
+        script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
+        script(type='text/javascript').
+            $(function () {
+                $("#ddlFruits").change(function () {
+                    var selectedText = $(this).find("option:selected").text();
+                    var selectedValue = $(this).val();
+                    //alert("Selected Text: " + selectedText + " Value: " + selectedValue);
+                });
+            });
+        div#save_button(onclick="student_info_save()")
+            p(style="color: white; text-align: center; vertical-align: middle; font-weight: 700;") Save
+
