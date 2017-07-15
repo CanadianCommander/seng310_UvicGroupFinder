@@ -2,14 +2,21 @@ extends layout
 
 block content
     div#header
-        h1#title Uvic Group Finder
+        h1#title(onclick="display_pop_over(this,event)") Uvic Group Finder
 
     div#main
         div#separator(onmousedown="start_split_adjust(event, this)")
         div.common#groups
+            div.group_box(style="display:none")
+                h3.group_heading(contenteditable="true" ) XYZ_hidden_XYZ
+                img.round_icon(src="/images/x-mark-3-xxl.png" alt="Delete" onclick="destroy_group(this)" style="width:20px; height:20px; margin: 0 0 3px 0; 0;display:inline-block; float: right; mouse: pointer;" )
+                div.members_lst
+                a(href="https://github.com/CanadianCommander/hello-world")
+                    img.round_icon(src="/images/GitHub-Mark-32px.png" alt="Git Hub" style="float: right")
             for group, i in groups
                 div.group_box
                     h3.group_heading(contenteditable="true" ) #{group.name}
+                    img.round_icon(src="/images/x-mark-3-xxl.png" alt="Delete" onclick="destroy_group(this)" style="width:20px; height:20px; margin: 0 0 3px 0; 0;display:inline-block; float: right; cursor: pointer;" )
                     div.members_lst
                         for student in group.students
                             div.student(onmouseover="student_highlight(this,true);" onmouseout="student_highlight(this,false);"
@@ -28,5 +35,16 @@ block content
                     p(style="display: inline-block;") #{student.name}
 
         div#save_button(onclick="save_groups()")
-            p(style="color: white; text-align: center; vertical-align: middle; font-weight: 700;") Save
+            p(style="color: white; text-align: center; vertical-align: middle; font-weight: 700;") Save - Draft
+        div#submit_button(onclick="show_submit()")
+            p(style="color: white; text-align: center; vertical-align: middle; font-weight: 700;") Submit
         img#save_prog(src="images/loading.gif")
+
+        div#submit
+            h2(style="text-align: center; margin-bottom: 5px;") Are you sure you want to submit
+            p(style="text-align: center")
+                i students will be notified of group assignments
+            div.button(onclick="hide_submit()" style="left: 20px;")
+                p(style="color: white; text-align: center; vertical-align: middle; font-weight: 700;") Cancel
+            div.button(onclick="hide_submit()" style="right: 20px")
+                p(style="color: white; text-align: center; vertical-align: middle; font-weight: 700;") Ok

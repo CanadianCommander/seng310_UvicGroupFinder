@@ -1,0 +1,18 @@
+.pop_over{
+  position: absolute;
+  background-color: #e4e4e4;
+  padding-left: 3px;
+  padding-right: 3px;
+  border: solid;
+  border-color: #dfdfdf;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px #9a9a9a;
+  transition: opacity 1s;
+}
+
+.pop_over_head {
+  color: black;
+  margin: 5px;
+  font-size: 20pt;
+  font-family: Futura, sans-serif;
+}

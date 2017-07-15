@@ -1,7 +1,8 @@
 /**
  * Created by bbenetti on 2017-07-10.
  */
-
+let mouse_x = 0;
+let mouse_y = 0;
 function load_cookie(){
   const old_id = get_cookie("user_id");
   if (old_id !== null) {
@@ -19,6 +20,7 @@ function add_group()
   var group_container = document.getElementById("groups");
   first_child = group_container.firstElementChild;
   var new_child = first_child.cloneNode(true);
+  new_child.style.display = "inline-block";
 
   // clear headers
   headers = new_child.getElementsByClassName("group_heading");
@@ -36,11 +38,32 @@ function add_group()
   group_container.insertBefore(new_child, group_container.lastElementChild)
 }
 
+function destroy_group(element){
+  let parent = $(element.parentNode);
+  parent.bind("transitionend", (event) => {
+    //move members back to student list
+    members = $(".members_lst > .student");
+    student_lst = $("#students");
+    if (members !== undefined && student_lst !== undefined) {
+      student_lst.append(members);
+    }
+
+    parent[0].parentNode.removeChild(parent[0])
+  });
+  $(parent).css('width', '0');
+}
+
 
 function student_highlight(element, b_on) {
   if (b_on)
   {
     element.style.setProperty("background-color","#e3e4f5");
+    $(element).bind("transitionend", function(){
+      let wtf = $(element).css('background-color');
+      if ($(element).css('background-color') === "rgb(227, 228, 245)" && element_in_drag === null){
+        display_pop_over(this)
+      }
+    });
   }
   else
   {
@@ -84,6 +107,9 @@ function drag(element, b_drag, event)
 
 function update_drag(event)
 {
+  mouse_x = event.clientX;
+  mouse_y = event.clientY;
+
   if(element_in_drag !== null)
   {
     element_in_drag.style.setProperty("position", "fixed");
@@ -165,6 +191,9 @@ function save_groups()
     let heading = $("h3",groups[i]);
 
     if (heading[0] !== undefined) {
+      if (heading[0].textContent === "XYZ_hidden_XYZ"){
+        continue;
+      }
       let heading_text = heading[0].textContent;
       if(heading_text in group_dic){
         // already in dictionary append to name so we can insert.
@@ -228,4 +257,12 @@ function save_groups()
 }
 
 
+function show_submit(){
+  let sub = $("#submit");
+  sub.css('display', 'inherit');
+}
 
+function hide_submit(){
+  let sub = $("#submit");
+  sub.css('display', 'none');
+}

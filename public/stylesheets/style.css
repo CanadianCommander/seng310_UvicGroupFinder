@@ -1,6 +1,12 @@
 body {
+  position: absolute;
   padding: 0px 15px 0px 15px;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 a {
@@ -12,12 +18,15 @@ p {
 }
 
 .group_heading {
-  margin: 0 0 5px 0;
+  display: inline-block;
+  width: 75%;
+  margin: 0 0 0 0;
   font-family: "Bebas Neue", sans-serif;
   font-weight: normal;
   font-style: italic;
   overflow: hidden;
   white-space: nowrap;
+  vertical-align: middle;
 }
 
 #title {
@@ -84,12 +93,13 @@ p {
   max-width: 175px;
   max-height: 180px;
   margin: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
   border: solid;
   border-color: #dfdfdf;
   border-radius: 5px;
   box-shadow: 2px 2px 6px #9a9a9a;
+  transition: width 0.25s;
 }
 img.group_box {
   background-color: transparent;
@@ -127,7 +137,7 @@ img.group_box {
   margin-right: 2px;
   padding: 2px;
   background-color: #eeeeee;
-  transition: background-color 0.5s;
+  transition: background-color 0.75s;
   cursor: all-scroll;
   box-shadow: 2px 2px 2px darkgray;
   z-index: 1;
@@ -138,7 +148,21 @@ img.group_box {
   margin: 5px;
   bottom: 10px;
   left: 0;
-  width: 50px;
+  width: 100px;
+  height: 25px;
+  border: solid;
+  background-color: #e67e22;
+  border-color: #e67e22;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#submit_button{
+  position: absolute;
+  margin: 5px;
+  bottom: 10px;
+  right: 10px;
+  width: 75px;
   height: 25px;
   border: solid;
   background-color: #e67e22;
@@ -152,10 +176,40 @@ img.group_box {
   position: absolute;
   margin: 5px;
   bottom: 10px;
-  left: 60px;
+  left: 110px;
   width: 40px;
   height: 13px;
   background-color: transparent;
   transition: opacity 5s;
+}
 
+#submit {
+  display: none;
+  position: absolute;
+  padding: 5px;
+  background-color: #ececec;
+  width: 400px;
+  height: 200px;
+  margin-left: -200px;
+  margin-top: -100px;
+  left: 50%;
+  top: 50%;
+  box-shadow: 5px 5px 5px #454545;
+  border: solid;
+  border-color: #ececec;
+  border-width: 5px;
+  border-radius: 5px;
+}
+
+.button {
+  position: absolute;
+  margin: 5px;
+  bottom: 5px;
+  width: 75px;
+  height: 25px;
+  border: solid;
+  background-color: #e67e22;
+  border-color: #e67e22;
+  border-radius: 5px;
+  cursor: pointer;
 }

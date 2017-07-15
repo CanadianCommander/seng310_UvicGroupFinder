@@ -29,3 +29,38 @@ function append_random(text){
 function remove_random(text){
   return text.replace(/_+\d+$/, "");
 }
+
+function display_pop_over(item){
+  const pop_over_size = 400;
+
+  $.ajax("/pop_over/1?target="+encodeURI(item.textContent),{
+    method: "GET",
+    complete: function (res, status){
+      let pop_over = $($.parseHTML(res.responseText));
+      let x = mouse_x;
+      let y = mouse_y;
+      if (x + pop_over_size > document.body.clientWidth)
+      {
+        x -= pop_over_size;
+        if(y + pop_over_size > document.body.clientHeight){
+          y -= pop_over_size;
+        }
+      }
+      else{
+        if(y + pop_over_size > document.body.clientHeight){
+          y -= pop_over_size;
+        }
+      }
+      pop_over.css("left", x + "px");
+      pop_over.css("top", y + "px");
+      pop_over.css("width", pop_over_size);
+      pop_over.css("height", pop_over_size);
+      $(document.body).append(pop_over);
+    },
+  });
+  $(item).bind("mouseout", (event) => {
+    let pop_overs = $('.pop_over');
+    pop_overs.css("opacity", "0.0");
+    pop_overs.bind("transitionend", (event) => pop_overs.remove());
+  });
+}
