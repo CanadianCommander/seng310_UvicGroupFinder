@@ -4,7 +4,7 @@
 let express = require('express');
 let router = express.Router();
 
-router.get('/create', function (req, res, next ){
+router.get('/', function (req, res, next ){
   res.render('project_creation_page');
 });
 

@@ -3,17 +3,6 @@
  */
 let mouse_x = 0;
 let mouse_y = 0;
-function load_cookie(){
-  const old_id = get_cookie("user_id");
-  if (old_id !== null) {
-    user_id = old_id;//export user id to all files
-  }
-  else{
-    const new_id = Math.random();
-    document.cookie = "user_id=" + new_id + ";";
-    user_id = new_id;//export user id to all files
-  }
-}
 
 function add_group()
 {

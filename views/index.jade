@@ -3,6 +3,8 @@ extends layout
 block content
     div#header
         h1#title(onclick="display_pop_over(this,event)") Uvic Group Finder
+        a(href="main_hub" style="margin: 10px; float: right;")
+             p Main_hub
 
     div#main
         div#separator(onmousedown="start_split_adjust(event, this)")
@@ -48,5 +50,3 @@ block content
                 p(style="color: white; text-align: center; vertical-align: middle; font-weight: 700;") Cancel
             div.button(onclick="hide_submit()" style="right: 20px")
                 p(style="color: white; text-align: center; vertical-align: middle; font-weight: 700;") Ok
-        a(href="main_hub")
-            p(style="Position: absolute; right:50%") Main_hub
