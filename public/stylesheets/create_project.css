@@ -1,0 +1,51 @@
+body{
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#main{
+  background-color: #d3d3d3;
+  position: absolute;
+  left: 50%;
+  top: 60px;
+  bottom: 10px;
+  width: 300px;
+  margin-left: -150px;
+  padding: 5px;
+}
+#plist{
+  display: inline-block;
+  background-color: #e4e4e4;
+  padding: 3px;
+  height: 99%;
+  width: 294px;
+  overflow: scroll;
+}
+
+#add_project{
+
+  background-color: #e67e22;
+  width: 100px;
+  height: 35px;
+  margin-left: 100px;
+  border: solid;
+  border-color: #e67e22;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.project{
+  display: inline-block;
+  height: 30px;
+  width: 98%;
+  background-color: #eeeeee;
+  vertical-align: middle;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 5px #454545;
+  border: solid;
+  border-color: #eeeeee;
+  border-radius: 2px;
+}
+.project br{
+  display:none;
+}

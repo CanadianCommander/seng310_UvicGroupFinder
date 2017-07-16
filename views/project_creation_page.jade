@@ -1,0 +1,22 @@
+//Created by bbenetti on 2017-07-15.
+
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/create_project.css')
+        script(src="/javascripts/jquery.js")
+        script(src="/javascripts/util.js")
+        script(src="/javascripts/project_page.js")
+    body
+        h1(style="text-align: center; margin-left: 4px; margin-top: 10px; font-family: Futura, sans-serif") Manage Group Projects
+        div#main
+            div#plist
+                div.project(style="display:none")
+                    img(src="/images/x-mark-3-xxl.png" alt="Delete" onclick="$(this.parentNode).remove();" style="width:20px; height:20px; vertical-align: middle; margin-bottom: 2px; display:inline-block; cursor: pointer;" )
+                    p(style="display: inline-block; line-height: 20px;margin:5px;display:inline-block;width:75%;overflow: hidden; white-space: nowrap;" contenteditable = true) XYZ_hidden_XYZ
+                    a(href="/")
+                        img(src="/images/chevron_right.png" alt="Delete" style="width:20px; height:20px; margin-top: 5px; margin-bottom: 5px; cursor: pointer;  float: right; " )
+                div#add_project(onclick="add_project(this)")
+                    p(style="color: white; text-align: center; vertical-align: middle; font-weight: 700; line-height: 35px; margin: 0px;") New Project
+
