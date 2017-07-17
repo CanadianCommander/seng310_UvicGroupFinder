@@ -1,0 +1,21 @@
+//
+   Created by bbenetti on 2017-07-16.
+
+div.pop_over
+    link(rel="stylesheet" href="stylesheets/pop_over1.css")
+    h2(style="display: inline-block; font-family: 'Futura', sans-serif; margin-left: 10px; margin-bottom: 2px; font-size: 20pt;") #{name}
+    if open == 0
+        img(src="images/locked.png" style="float: right; width:20px; height:25px; margin: 5px; cursor: help;" title="Group Locked. You must request to join.")
+    else
+        img(src="images/unlocked.png" style="float: right; width:20px; height:25px; margin: 5px; cursor: help;" title="Group Unlocked.")
+    hr(style="margin-bottom: 0;")
+    div(style="background-color: #f0f0f0 ; height: 290px; width: 100%; box-shadow: 0 0 20px #e0e0e0; overflow: scroll;")
+        h4(style="margin-bottom:5px; margin-top: 2px; font-style: italic; color: #2A617C;") Description:
+        p(style="font-size: 12pt;padding-left: 10px;") #{description}
+
+    if open == 0
+        div.button(style="margin: 0; width: 130px; vertical-align: 100%; display: inline-block; background-color: #E6422E; border-color: #E6422E;")
+            p Send Join Request
+    else
+        div.button(style="margin: 0; width: 80px; vertical-align: 100%; display: inline-block; background-color: #72B02D; border-color: #72B02D;")
+            p Join Group

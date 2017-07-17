@@ -7,7 +7,8 @@
   border-color: #dfdfdf;
   border-radius: 5px;
   box-shadow: 2px 2px 6px #9a9a9a;
-  transition: opacity 1s;
+  opacity: 1.0;
+  transition: opacity 0.5s;
 }
 
 .pop_over_head {
@@ -15,4 +16,14 @@
   margin: 5px;
   font-size: 20pt;
   font-family: Futura, sans-serif;
+}
+
+.button{
+  color: white;
+  background-color: #e67e22;
+  border: solid;
+  border-color: #e67e22;
+  border-radius: 5px;
+  width: 65px;
+  height: 20px;
 }

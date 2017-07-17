@@ -32,5 +32,17 @@
      "year": 4,
      "gender": "M"
    }
+  ],
+  "groups":[
+    {
+      "name":"Team 5",
+      "description": "Group five is working on the Uvic Group Finder application. This application will allow students to easily find groups. Overall, this should improve the group project experience at Uvic.",
+      "open": 1
+    },
+    {
+      "name":"Frying Plan",
+      "description":"Team Frying Plan is making a revolutionary new application. Frying-Plan. This app shows only recipes that you currently have the ingredients for. This helps reduce food waste",
+      "open": 0
+    }
   ]
 }

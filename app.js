@@ -1,17 +1,18 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var express =       require('express');
+var path =          require('path');
+var favicon =       require('serve-favicon');
+var logger =        require('morgan');
+var cookieParser =  require('cookie-parser');
+var bodyParser =    require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-var web_api = require('./routes/w_api');
-var pop_over = require('./routes/pop_over');
+var index =           require('./routes/index');
+var users =           require('./routes/users');
+var web_api =         require('./routes/w_api');
+var pop_over =        require('./routes/pop_over');
 var student_sign_up = require('./routes/student_sign_up');
-var main_hub = require('./routes/main_hub');
-var projects_page = require('./routes/projects.js');
+var main_hub =        require('./routes/main_hub');
+var projects_page =   require('./routes/projects.js');
+var join_group =      require('./routes/join_group');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use('/pop_over', pop_over);
 app.use('/student_sign_up',student_sign_up);
 app.use('/main_hub',main_hub);
 app.use('/projects', projects_page);
+app.use('/join_group', join_group);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

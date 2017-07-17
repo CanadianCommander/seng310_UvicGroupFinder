@@ -31,7 +31,7 @@ function destroy_group(element){
   let parent = $(element.parentNode);
   parent.bind("transitionend", (event) => {
     //move members back to student list
-    members = $(".members_lst > .student");
+    members = parent.find(".members_lst > .student");
     student_lst = $("#students");
     if (members !== undefined && student_lst !== undefined) {
       student_lst.append(members);
@@ -48,9 +48,8 @@ function student_highlight(element, b_on) {
   {
     element.style.setProperty("background-color","#e3e4f5");
     $(element).bind("transitionend", function(){
-      let wtf = $(element).css('background-color');
       if ($(element).css('background-color') === "rgb(227, 228, 245)" && element_in_drag === null){
-        display_pop_over(this)
+        display_pop_over(element.textContent);
       }
     });
   }
@@ -257,4 +256,10 @@ function show_submit(){
 function hide_submit(){
   let sub = $("#submit");
   sub.css('display', 'none');
+}
+
+
+function display_group_pop_over(group_box){
+  let group_name = $(group_box).find('.group_heading');
+  display_pop_over(group_name[0].textContent, "2");
 }

@@ -28,7 +28,8 @@ block content
                         img.round_icon(src="/images/GitHub-Mark-32px.png" alt="Git Hub" style="float: right")
             div.group_box(style="background-color: transparent; border-color: transparent; box-shadow: none; position: relative")
                 img(src="/images/add_group.png" onclick="add_group()"
-                    style="position: absolute; left: 25%; right:25%; top:25%; bottom:25%; width:50%; height:50%;cursor:pointer;")
+                    style="position: absolute; left: 25%; right:25%; top:25%; bottom:25%; width:50%; height:50%;cursor:pointer;"
+                    ondragstart="event.preventDefault();")
 
         div.common#students
             for student, i in students

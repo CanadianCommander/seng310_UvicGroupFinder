@@ -22,6 +22,7 @@ function populate_database(){
   file_system.readFile( __dirname + "/fake_data.json", function(error, data) {
     if(!error){
       module.exports.database.serialize( () => {
+        // load student data
         module.exports.database.run("CREATE TABLE IF NOT EXISTS student_info (first_name VARCHAR(100), last_name VARCHAR(100)" +
           ", about VARCHAR(10000), program VARCHAR(100), year INTEGER,  gender VARCHAR(10));");
         let js_data = JSON.parse(data);
@@ -29,6 +30,12 @@ function populate_database(){
           let student = js_data.students[i];
           module.exports.database.run("INSERT INTO student_info VALUES ((?), (?), (?), (?), (?), (?) )",
             student.first_name, student.last_name, student.about, student.program, student.year, student.gender);
+        }
+
+        module.exports.database.run("CREATE TABLE IF NOT EXISTS group_info (name VARCHAR(100), description VARCHAR(10000), open INTEGER);");
+        for(let i =0; i < js_data.groups.length; i ++){
+          let group = js_data.groups[i];
+          module.exports.database.run("INSERT INTO group_info VALUES((?), (?), (?))", group.name, group.description, group.open);
         }
       });
     }

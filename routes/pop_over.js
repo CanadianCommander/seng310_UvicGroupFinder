@@ -25,4 +25,19 @@ router.get("/1", function (req, res, next){
 });
 
 
+router.get("/2", function (req, res, next){
+    //load group info from DB
+    database.get("SELECT * FROM group_info WHERE name = (?);", req.query.target, (err, row) =>{
+      if(err || !row){
+        console.error("TABLE: group_info does not contain an entry for: " + req.query.target);
+        res.status(200).render("pop_overs/pop_over_2", {name: req.query.target});
+        return;
+      }
+
+      res.status(200).render("pop_overs/pop_over_2", {name: row.name, description: row.description, open: row.open})
+    });
+
+});
+
+
 module.exports = router;

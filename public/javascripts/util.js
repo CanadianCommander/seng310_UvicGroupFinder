@@ -43,15 +43,18 @@ function remove_random(text){
   return text.replace(/_+\d+$/, "");
 }
 
-function display_pop_over(item){
+pop_over_open = false;
+function display_pop_over(target, type="1"){
   const pop_over_size = 400;
 
-  $.ajax("/pop_over/1?target="+encodeURI(item.textContent),{
+  if(pop_over_open)return;
+  pop_over_open = true;
+  $.ajax(`/pop_over/${type}?target=`+encodeURI(target),{
     method: "GET",
     complete: function (res, status){
       let pop_over = $($.parseHTML(res.responseText));
-      let x = mouse_x;
-      let y = mouse_y;
+      let x = mouse_x - 10;
+      let y = mouse_y - 10;
       if (x + pop_over_size > document.body.clientWidth)
       {
         x -= pop_over_size;
@@ -69,11 +72,18 @@ function display_pop_over(item){
       pop_over.css("width", pop_over_size);
       pop_over.css("height", pop_over_size);
       $(document.body).append(pop_over);
+      pop_over.bind("mouseleave", (event) => {
+        pop_over.css("opacity", "0.0");
+        pop_over.bind("transitionend", (event) => {
+          if ((pop_over.filter("div")).css("opacity") === "0") {
+            pop_over.remove();
+            pop_over_open = false;
+          }
+        });
+      });
+      pop_over.bind("mouseenter", (event) =>{
+        pop_over.css("opacity", "1.0");
+      })
     },
-  });
-  $(item).bind("mouseout", (event) => {
-    let pop_overs = $('.pop_over');
-    pop_overs.css("opacity", "0.0");
-    pop_overs.bind("transitionend", (event) => pop_overs.remove());
   });
 }
