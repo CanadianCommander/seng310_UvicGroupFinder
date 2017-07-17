@@ -1,0 +1,19 @@
+// Created by bbenetti on 2017-07-16.
+
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/create_project.css')
+        script(src="/javascripts/jquery.js")
+        script(src="/javascripts/util.js")
+        script(src="/javascripts/project_page.js")
+    body
+        h1(style="text-align: center; margin-left: 4px; margin-top: 10px; font-family: Futura, sans-serif") Select Group Project
+        div#main
+            div#plist
+                for proj in projects
+                    div.project()
+                        p(style="display: inline-block; line-height: 20px;margin:5px;display:inline-block;width:75%;overflow: hidden; white-space: nowrap;" contenteditable = true) #{proj.name}
+                        a(href="/")
+                            img(src="/images/chevron_right.png" alt="Delete" style="width:20px; height:20px; margin-top: 5px; margin-bottom: 5px; cursor: pointer;  float: right; " )
