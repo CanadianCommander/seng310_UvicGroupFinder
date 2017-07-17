@@ -72,10 +72,10 @@ function default_render(res){
       {name: "Forth Group",        students: []},
       {name: "Fifth Group",        students: []}],
     students: [{name: "Joe"},
-      {name: "Jon"},
-      {name: "Sally"},
-      {name: "Bill Bird"},
-      {name: "Mr Bean"},
+      {name: "Benjamin"},
+      {name: "Saja"},
+      {name: "Kyle"},
+      {name: "Andrew"},
       {name: "D J Trump"}]
   });
 }

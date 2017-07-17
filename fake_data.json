@@ -1,0 +1,36 @@
+{
+ "students":[
+   {
+     "first_name":"Saja",
+     "last_name":"Dodos",
+     "about":"I love dodo birds ... don't you?",
+     "program": "Computer Science",
+     "year": 3,
+     "gender": "F"
+   },
+   {
+     "first_name":"Kyle",
+     "last_name":"????",
+     "about":"I have two kids. both are aliens.... I think they want to eat my brain! \n Also I love Rock Star.",
+     "program": "Computer Science",
+     "year": 3,
+     "gender": "M"
+   },
+   {
+     "first_name":"Andrew",
+     "last_name":"????",
+     "about":"I have a Surface Pro nuf said.",
+     "program": "Computer Science",
+     "year": 3,
+     "gender": "M"
+   },
+   {
+     "first_name":"Benjamin",
+     "last_name":"Benetti",
+     "about":"Master Programmer",
+     "program": "Computer Science w/ Honors",
+     "year": 4,
+     "gender": "M"
+   }
+  ]
+}
