@@ -1,7 +1,7 @@
 {
  "students":[
    {
-     "first_name":"Saja",
+     "first_name":"Sanja",
      "last_name":"Dodos",
      "about":"I love dodo birds ... don't you?",
      "program": "Computer Science",
@@ -10,27 +10,27 @@
    },
    {
      "first_name":"Kyle",
-     "last_name":"????",
+     "last_name":"Gering",
      "about":"I have two kids. both are aliens.... I think they want to eat my brain! \n Also I love Rock Star.",
      "program": "Computer Science",
-     "year": 3,
+     "year": 4,
      "gender": "M"
    },
    {
      "first_name":"Andrew",
-     "last_name":"????",
+     "last_name":"Braun",
      "about":"I have a Surface Pro nuf said.",
      "program": "Computer Science",
      "year": 3,
      "gender": "M"
    },
    {
-     "first_name":"Benjamin",
-     "last_name":"Benetti",
+     "first_name":"Benjamim",
+     "last_name":"Benelli",
      "about":"Master Programmer",
      "program": "Computer Science w/ Honors",
      "year": 4,
-     "gender": "M"
+     "gender": "Other"
    }
   ],
   "groups":[

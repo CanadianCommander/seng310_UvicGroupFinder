@@ -68,7 +68,7 @@ function student_highlight(element, b_on) {
   }
 }
 function student_info_save(){
-    window.location.href = "main_hub";
+    window.location.href = "projects/select";
 }
 
 element_in_drag = null;
