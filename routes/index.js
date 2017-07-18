@@ -67,11 +67,7 @@ function database_render(res, req, group_lst, unassigned_lst){
 
 function default_render(res, req){
   res.render('index', {
-    groups: [{name: "First Group", students: []},
-      {name: "Second Group",       students: []},
-      {name: "Third Group",        students: []},
-      {name: "Forth Group",        students: []},
-      {name: "Fifth Group",        students: []}],
+    groups: [],
     students: [{name: "Joe"},
       {name: "Benjamin"},
       {name: "Saja"},
