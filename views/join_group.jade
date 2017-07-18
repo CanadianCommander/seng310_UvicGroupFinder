@@ -18,20 +18,21 @@ block content
                 div.round_icon(style="float:right; margin-top: 10px; cursor: pointer;" onclick="display_group_pop_over(this.parentNode)")
                     img(src="/images/info-icon.png", style="width: 23px; height: 23px;")
             for group, i in groups
-                div.group_box
+                div.group_box(style= group.high_lite ? "border-color: #72B02D;"  : "")
                     h3.group_heading() #{group.name}
                     div.members_lst
                         for student in group.students
                             div.student(style="cursor:pointer"
                                         onclick="display_pop_over(this.textContent)")
                                 p(style="display: inline-block;") #{student}
-                    div.round_icon(style="float:right; margin-top: 10px; cursor: pointer;" onclick="display_group_pop_over(this.parentNode)")
-                        img(src="/images/info-icon.png", style="width: 23px; height: 23px;")
+                    div.round_icon(style="float:right; margin-top: 10px; cursor: pointer;" onclick= group.high_lite ? "show_create_group()" : "display_group_pop_over(this.parentNode)")
+                        img(src=group.high_lite ? "/images/cog.png" : "/images/info-icon.png", style="width: 23px; height: 23px;")
 
-            div.group_box(style="background-color: transparent; border-color: transparent; box-shadow: none; position: relative")
-                img(src="/images/add_group.png" onclick="show_create_group()"
-                style="position: absolute; left: 25%; right:25%; top:25%; bottom:25%; width:50%; height:50%;cursor:pointer;"
-                ondragstart="event.preventDefault();")
+            if !remove_plus
+                div.group_box(style="background-color: transparent; border-color: transparent; box-shadow: none; position: relative")
+                    img(src="/images/add_group.png" onclick="show_create_group()"
+                    style="position: absolute; left: 25%; right:25%; top:25%; bottom:25%; width:50%; height:50%;cursor:pointer;"
+                    ondragstart="event.preventDefault();")
 
     div#join_request(style="display: none;")
         h2(style="display: inline-block; line-height: 20px; margin-bottom: 5px; margin-top: 0; display: inline-block; color: #72B02D;") Join Request

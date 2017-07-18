@@ -15,7 +15,13 @@ function open_project(element, bStudent){
   let proj_name = ($(element).parent().find("p"))[0].textContent;
 
   if(bStudent){
-    $(location).attr("href", "/join_group?name="+proj_name);
+    if(proj_name === "SENG 310 Main Project"){
+      //hack hack hack
+      $(location).attr("href", "/join_group?name=" + proj_name +"&foo=true");
+    }
+    else {
+      $(location).attr("href", "/join_group?name=" + proj_name);
+    }
   }
   else{
     //teacher
