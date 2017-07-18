@@ -15,5 +15,5 @@ html
                 for proj in projects
                     div.project()
                         p(style="display: inline-block; line-height: 20px;margin:5px;display:inline-block;width:75%;overflow: hidden; white-space: nowrap;" contenteditable = true) #{proj.name}
-                        a(href="/")
-                            img(src="/images/chevron_right.png" alt="Delete" style="width:20px; height:20px; margin-top: 5px; margin-bottom: 5px; cursor: pointer;  float: right; " )
+                        img(src="/images/chevron_right.png" alt="Delete" style="width:20px; height:20px; margin-top: 5px; margin-bottom: 5px; cursor: pointer;  float: right; "
+                            onclick="open_project(this,true)")

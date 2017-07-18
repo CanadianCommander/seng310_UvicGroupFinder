@@ -4,7 +4,15 @@
 let mouse_x = 0;
 let mouse_y = 0;
 
-function add_group()
+function init(){
+  // change all check boxes to super cool switches !!!!!!!!!!!!!!
+  let sw = $('.js-switch');
+  for (let i =0; i < sw.length; i++){
+    new Switchery(sw[0]);
+  }
+}
+
+function add_group(txt="New Group", mb_l="")
 {
   var group_container = document.getElementById("groups");
   first_child = group_container.firstElementChild;
@@ -15,16 +23,17 @@ function add_group()
   headers = new_child.getElementsByClassName("group_heading");
   for ( i = 0; i < headers.length; i += 1 )
   {
-    headers[i].innerHTML = "New Group";
+    headers[i].innerHTML = txt;
   }
   // clear member list
   var members = new_child.getElementsByClassName("members_lst");
   for ( i = 0; i < headers.length; i += 1 )
   {
-    members[i].innerHTML = "";
+    members[i].innerHTML = mb_l;
   }
 
   group_container.insertBefore(new_child, group_container.lastElementChild)
+  return new_child;
 }
 
 function destroy_group(element){
@@ -261,5 +270,52 @@ function hide_submit(){
 
 function display_group_pop_over(group_box){
   let group_name = $(group_box).find('.group_heading');
-  display_pop_over(group_name[0].textContent, "2");
+  display_pop_over(group_name[0].textContent, "2", group_box);
+}
+
+function show_join_request(){
+  $("#join_request").css("display", "inherit");
+  $("#join_request").css("opacity", "1.0");
+  $("#join_request").css("border-color", "#cecece");
+  $("#join_request > .button").css("background-color", "#e67e22");
+  $("#join_request > .button").css("border-color", "#e67e22");
+  $("#join_request > .button").html("<p>Send</p>");
+  let wtf = $("#join_request > div").not(".button");
+  wtf.html("<p style=\"font-style: italic; color: darkGray;\"> write message here</p>");
+  $("#join_request > div").not(".button")[0].text_cleared = undefined;
+}
+
+function hide_pop_up(ele, msg, bAlert=true){
+  if($(ele).parent().find("div").not(".button").has("p").length === 0 && bAlert){
+    if (confirm(msg)){
+      ele.parentNode.style.display = 'none';
+    }
+  }
+  else{
+    ele.parentNode.style.display = 'none';
+  }
+}
+
+function show_create_group(){
+  $("#create_group_form").css("display","inherit");
+  $("#create_group_form").css("opacity","1.0");
+  $("#create_group_form").css("border-color","#cecece");
+}
+
+
+function student_group_add(group_c_form){
+  let g_form = $(group_c_form);
+  let new_group = add_group(g_form.find(".group_heading").html(),
+    "<div class='student' style=\"cursor:pointer\" onclick=\"display_pop_over(this.textContent)\">" +
+    "                                <p style=\"display: inline-block;\"> User:"+ user_id + " </p></div>");
+
+  new_group = $(new_group);
+  new_group.css("border-color", "#72B02D");
+  new_group.find(".round_icon").attr("onclick","show_create_group()")
+    .find("img").attr("src","images/cog.png");
+  let c_group = $("#create_group_form");
+  c_group.find(".button > p").html("Save").css("cursor","pointer").attr("onclick", 'hide_pop_up(this.parentNode,"",false)');
+  c_group.find(".round_icon").attr("onclick", "hide_pop_up(this,'',false)");
+
+  $(".group_box").has("[src='/images/add_group.png']").remove();
 }

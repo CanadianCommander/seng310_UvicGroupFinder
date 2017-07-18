@@ -5,20 +5,21 @@ extends layout
 
 block content
     div#header
-        h1#title(onclick="display_pop_over(this,event)") Join or create a Group
+        h1#title #{project}
+        h3(style="line-height: 20px; margin-bottom: 0; margin-top: 30px; display: inline-block; color: #72B02D;") Join Group
         a(href="main_hub" style="margin: 10px; float: right;")
             p Main_hub
 
     div#main
         div.common#groups(style="right: 10px;")
             div.group_box(style="display: none;")
-                h3.group_heading(contenteditable="true" ) XYZ_hidden_XYZ
+                h3.group_heading(style="width: 100%; overflow: auto;") XYZ_hidden_XYZ
                 div.members_lst
                 div.round_icon(style="float:right; margin-top: 10px; cursor: pointer;" onclick="display_group_pop_over(this.parentNode)")
                     img(src="/images/info-icon.png", style="width: 23px; height: 23px;")
             for group, i in groups
                 div.group_box
-                    h3.group_heading(contenteditable="true" ) #{group.name}
+                    h3.group_heading() #{group.name}
                     div.members_lst
                         for student in group.students
                             div.student(style="cursor:pointer"
@@ -28,7 +29,32 @@ block content
                         img(src="/images/info-icon.png", style="width: 23px; height: 23px;")
 
             div.group_box(style="background-color: transparent; border-color: transparent; box-shadow: none; position: relative")
-                img(src="/images/add_group.png" onclick="add_group()"
+                img(src="/images/add_group.png" onclick="show_create_group()"
                 style="position: absolute; left: 25%; right:25%; top:25%; bottom:25%; width:50%; height:50%;cursor:pointer;"
                 ondragstart="event.preventDefault();")
 
+    div#join_request(style="display: none;")
+        h2(style="display: inline-block; line-height: 20px; margin-bottom: 5px; margin-top: 0; display: inline-block; color: #72B02D;") Join Request
+        img.round_icon(src="/images/x-mark-3-xxl.png" alt="Delete"
+                       style="width:20px; height:20px; margin: 0 0 3px 0; 0;display:inline-block; float: right; cursor: pointer;"
+                       onclick="hide_pop_up(this, 'Message Will be Lost' )")
+        div(style="width: 99%;height: 235px; background-color: white; overflow: scroll;" contenteditable="true" onmousedown="clear_default(this)")
+            p(style="font-style: italic; color: darkGray;") write message here
+        div.button(style="height: 25px;text-align: center; color: white; width: 100px; right: 10px; top: auto; bottom: 0;" onclick="are_you_sure2(this, 'Send', 'Are you sure?', 'message sent')")
+            p(style=" font-weight: 700;") Send
+
+    div#create_group_form(style="display:none;")
+        img.round_icon(src="/images/x-mark-3-xxl.png" alt="close"
+                        style="width:20px; height:20px; margin: 0 0 3px 0; 0;display:inline-block; float: right; cursor: pointer;"
+                        onclick="hide_pop_up(this, 'Description Will be Lost')")
+        p(style="font-family: 'Futura', sans-serif; font-weight: bold; font-style: italic; font-size: 12pt; color: #72B02D;") Create New Group
+        hr
+        h3(style="display: inline-block; margin-right: 8px;") Group Name:
+        div.group_heading(contenteditable="true") New Group
+        h3 Description:
+        div(style="width:100%;height: 300px;background-color: white; overflow: scroll;" onmousedown="clear_default(this)" contenteditable="true")
+            p(style="font-style:italic; color: darkGray;") write a description of your group
+        h3(style="display: inline-block" title="Users must request to join a private group") Private:
+        input.js-switch(type="checkbox")
+        div.button(style="height: 25px;text-align: center; color: white; width: 105px; right: 0; top: auto; bottom: 0;" onclick="are_you_sure2(this, 'Create', 'Are you sure?', 'Group Created', () => student_group_add(this.parentNode))")
+            p(style=" font-weight: 500;") Create

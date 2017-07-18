@@ -2,7 +2,8 @@ extends layout
 
 block content
     div#header
-        h1#title(onclick="display_pop_over(this,event)") Uvic Group Finder
+        h1#title(contenteditable="true") #{project}
+        h3(style="line-height: 20px; margin-bottom: 0; margin-top: 30px; display: inline-block; color: #72B02D;") Manage
         a(href="main_hub" style="margin: 10px; float: right;")
              p Main_hub
 
@@ -24,7 +25,7 @@ block content
                             div.student(onmouseover="student_highlight(this,true);" onmouseout="student_highlight(this,false);"
                             onmousedown="drag(this,true)" onmouseup="drag(this,false,event)")
                                 p(style="display: inline-block;") #{student}
-                    a(href="https://github.com/CanadianCommander/hello-world")
+                    a(href="https://github.com/CanadianCommander/seng310_UvicGroupFinder")
                         img.round_icon(src="/images/GitHub-Mark-32px.png" alt="Git Hub" style="float: right")
             div.group_box(style="background-color: transparent; border-color: transparent; box-shadow: none; position: relative")
                 img(src="/images/add_group.png" onclick="add_group()"

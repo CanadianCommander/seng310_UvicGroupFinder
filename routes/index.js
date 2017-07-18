@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
         (err, rows) => {
           if (rows.length === 0){
             console.log("failed to find save state for id: " + req.cookies.user_id + " in DataBase");
-            default_render(res);
+            default_render(res, req);
           }
           else {
             group_lists = {};
@@ -35,19 +35,19 @@ router.get('/', function(req, res, next) {
                 }
               }
             }
-          database_render(res, group_lists,unassigned_list)
+          database_render(res, req, group_lists,unassigned_list)
           }
         });
     });
   }
   else {
     // no db data just send back default
-    default_render(res);
+    default_render(res,req);
   }
 });
 
 
-function database_render(res, group_lst, unassigned_lst){
+function database_render(res, req, group_lst, unassigned_lst){
 
   //remove any null student names (this happens when group is empty)
   for (let key in group_lst){
@@ -59,12 +59,13 @@ function database_render(res, group_lst, unassigned_lst){
 
   res.render('index', {
     groups: group_lst,
-    students: unassigned_lst
+    students: unassigned_lst,
+    project: req.query.name
   });
 }
 
 
-function default_render(res){
+function default_render(res, req){
   res.render('index', {
     groups: [{name: "First Group", students: []},
       {name: "Second Group",       students: []},
@@ -76,7 +77,8 @@ function default_render(res){
       {name: "Saja"},
       {name: "Kyle"},
       {name: "Andrew"},
-      {name: "D J Trump"}]
+      {name: "D J Trump"}],
+    project: req.query.name
   });
 }
 

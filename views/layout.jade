@@ -3,9 +3,11 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href="/stylesheets/switchery.css")
     script(src="/javascripts/main.js")
     script(src="/javascripts/jquery.js")
     script(src="/javascripts/util.js")
-  body(onmousemove="update_drag(event)" onmouseup="drag(null,false,event)" onload="load_cookie()")
+    script(src="/javascripts/switchery.js")
+  body(onmousemove="update_drag(event)" onmouseup="drag(null,false,event)" onload="load_cookie();init();")
     block content
     block mk2
