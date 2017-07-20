@@ -41,7 +41,7 @@ block content
                        onclick="hide_pop_up(this, 'Message Will be Lost' )")
         div(style="width: 99%;height: 235px; background-color: white; overflow: scroll;" contenteditable="true" onmousedown="clear_default(this)")
             p(style="font-style: italic; color: darkGray;") write message here
-        div.button(style="height: 25px;text-align: center; color: white; width: 100px; right: 10px; top: auto; bottom: 0;" onclick="are_you_sure2(this, 'Send', 'Are you sure?', 'message sent')")
+        div.button(style="height: 25px;text-align: center; color: white; width: 100px; right: 10px; top: auto; bottom: 0;" onclick="are_you_sure2(this, 'Send', 'Confirm', 'message sent')")
             p(style=" font-weight: 700;") Send
 
     div#create_group_form(style="display:none;")
@@ -57,5 +57,5 @@ block content
             p(style="font-style:italic; color: darkGray;") write a description of your group
         h3(style="display: inline-block" title="Users must request to join a private group") Private:
         input.js-switch(type="checkbox")
-        div.button(style="height: 25px;text-align: center; color: white; width: 105px; right: 0; top: auto; bottom: 0;" onclick="are_you_sure2(this, 'Create', 'Are you sure?', 'Group Created', () => student_group_add(this.parentNode))")
+        div.button(style="height: 25px;text-align: center; color: white; width: 105px; right: 0; top: auto; bottom: 0;" onclick="are_you_sure2(this, 'Create', 'Confirm', 'Group Created', () => student_group_add(this.parentNode))")
             p(style=" font-weight: 500;") Create
