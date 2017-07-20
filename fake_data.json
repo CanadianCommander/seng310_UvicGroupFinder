@@ -25,12 +25,60 @@
      "gender": "M"
    },
    {
-     "first_name":"Benjamim",
-     "last_name":"Benelli",
+     "first_name":"Trump",
+     "last_name":"Donald",
+     "about":"Make America Great Gain!",
+     "program": "Software Engineering",
+     "year": 2,
+     "gender": "M"
+   },
+   {
+     "first_name":"Joe",
+     "last_name":"Stevenson",
+     "about":"Going to be the next Steve Jobs.",
+     "program": "Software Engineering",
+     "year": 2,
+     "gender": "M"
+   },
+   {
+     "first_name":"Benjamin",
+     "last_name":"Benetti",
      "about":"Master Programmer",
      "program": "Computer Science w/ Honors",
      "year": 4,
-     "gender": "Other"
+     "gender": "M"
+   },
+   {
+     "first_name":"Jeniffer",
+     "last_name":"Dickens",
+     "about":"...",
+     "program": "Software Engineering",
+     "year": 2,
+     "gender": "F"
+   },
+   {
+     "first_name":"Genny",
+     "last_name":"Franklin",
+     "about":"...",
+     "program": "Computer Science",
+     "year": 3,
+     "gender": "F"
+   },
+   {
+     "first_name":"Jon",
+     "last_name":"Travolta",
+     "about":"Go Grease Lighting Go!",
+     "program": "Computer Science",
+     "year": 3,
+     "gender": "M"
+   },
+   {
+     "first_name":"Susan",
+     "last_name":"Buckner",
+     "about":"I love the news",
+     "program": "Computer Science",
+     "year": 3,
+     "gender": "F"
    }
   ],
   "groups":[

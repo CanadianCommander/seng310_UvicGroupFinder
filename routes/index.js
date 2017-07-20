@@ -70,10 +70,14 @@ function default_render(res, req){
     groups: [],
     students: [{name: "Joe"},
       {name: "Benjamin"},
-      {name: "Saja"},
+      {name: "Sanja"},
       {name: "Kyle"},
       {name: "Andrew"},
-      {name: "D J Trump"}],
+      {name: "Trump"},
+      {name: "Jeniffer"},
+      {name: "Genny"},
+      {name: "Jon"},
+      {name: "Susan"}],
     project: req.query.name
   });
 }

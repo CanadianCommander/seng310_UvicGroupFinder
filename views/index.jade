@@ -25,6 +25,7 @@ block content
                             div.student(onmouseover="student_highlight(this,true);" onmouseout="student_highlight(this,false);"
                             onmousedown="drag(this,true)" onmouseup="drag(this,false,event)")
                                 p(style="display: inline-block;") #{student}
+                                img(src="/images/info-icon.png", style="width: 20px; height: 20px; float:right; cursor:pointer;" onmousedown="display_pop_over(this.parentNode.textContent);")
                     a(href="https://github.com/CanadianCommander/seng310_UvicGroupFinder")
                         img.round_icon(src="/images/GitHub-Mark-32px.png" alt="Git Hub" style="float: right")
             div.group_box(style="background-color: transparent; border-color: transparent; box-shadow: none; position: relative")
@@ -35,9 +36,9 @@ block content
         div.common#students
             for student, i in students
                 div.student(onmouseover="student_highlight(this,true);" onmouseout="student_highlight(this,false);"
-                            onmousedown="drag(this,true)" onmouseup="drag(this,false,event)")
+                            onmousedown="drag(this,true,event)" onmouseup="drag(this,false,event)")
                     p(style="display: inline-block;") #{student.name}
-                    img(src="/images/info-icon.png", style="width: 20px; height: 20px; float:right; cursor:pointer;" onclick="display_pop_over(this.textContent);")
+                    img(src="/images/info-icon.png", style="width: 20px; height: 20px; float:right; cursor:pointer;" onmousedown="display_pop_over(this.parentNode.textContent);")
 
         div#save_button(onclick="save_groups()")
             p(style="color: white; text-align: center; vertical-align: middle; font-weight: 700;") Save - Draft
@@ -50,6 +51,6 @@ block content
             p(style="text-align: center")
                 i students will be notified of group assignments
             div.button(onclick="hide_submit()" style="left: 20px;")
-                p(style="color: white; text-align: center; vertical-align: middle; font-weight: 700;") Cancel
-            div.button(onclick="hide_submit()" style="right: 20px")
                 p(style="color: white; text-align: center; vertical-align: middle; font-weight: 700;") Ok
+            div.button(onclick="hide_submit()" style="right: 20px")
+                p(style="color: white; text-align: center; vertical-align: middle; font-weight: 700;") Cancel
